@@ -1,0 +1,704 @@
+{% extends 'userapp/base_guest.html' %}
+{% load static %}
+
+{% block title %} Members {% endblock %}
+{%block head%} {%endblock%}
+{% block category %}
+<div class="dropdown">
+    <button class="dropbtn"style="padding-left: 40px;"><h3 style="padding-top: 7px;">Accessories<i style="padding-left: 5px;;" class="fa fa-caret-down"></i></h3>
+    </button>
+    <div class="dropdown-content">
+        {% for x in category_data%}
+      <a href="/category/{{x.id}}">{{x.categoryname}}</a>
+      {% endfor %}
+    </div>
+  </div> 
+  <div style="padding-left: 40px;" class="home "> <a style="text-decoration: none;" href="/members/"><h3 style=" color: white; padding-top: 20px;">Members</h3> </a> </div>
+  <div style="padding-left: 40px;" class="home "> <a style="text-decoration: none;" href="/gallery/"><h3 style=" color: white; padding-top: 20px;">Gallery</h3> </a> </div>
+{% endblock %} 
+{% block login%}
+{% endblock%}
+{% block account %}
+<div class="dropdown">
+  {% if userdetails %}
+  <button class="dropbtn"style="padding-left: 40px;"><img style="height: 30px; margin-top: 13px;" alt="User Pic" src="{{userdetails.ImageURL}}" id="profile-image1" class="img-circle img-responsive"></h4>
+  </button>
+  {% else %}
+  <button class="dropbtn"style="padding-left: 40px;"><i style="font-size: 20px; padding-top: 19px; padding-left: 5px;" class="fas fa-user-circle"></i></h4>
+  </button>
+  {% endif %}
+  {% if request.user.is_authenticated %}
+  <div class="dropdown-content">
+    <a href="/user_profile/">My Profile</a>
+    <a href="/user_order_history/">order History</a>
+    <a href="/user_logout/">logout</a>
+  </div>
+  {% else %}
+  
+  {% endif %}
+</div>
+{%endblock%}
+
+
+{% block members %}
+  <div class="album bg-secondary" style="padding-top: 70px;">
+    <div class="container-fluid">
+      <h1 class="text-left my-3 ml-5"><span class="text-light bg-dark rounded-3 display-5 border py-2 px-5">Girls</span></h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Bina Tamang</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Pujana Shrestha</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">+2 NEB</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/parmita.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Pramita Shrestha</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Rama Kunwar</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">Environment Science</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/riki.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Rikita Khatiwada</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Rupa Oli</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/sanjeet.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Sanjita Thapa</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">Class Representative </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Shraddha Maharjan</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-left my-3 ml-5"><span class="text-light bg-dark rounded-3 display-5 border py-2 px-5">Boys</span></h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Bipin Shrestha</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Narayan Prasad Dhakal</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Sushil Ramtel</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Chandra Mijar</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Amir Khokhali</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/sancha.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Sanchaman Limbu</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Aayush Adhikari</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/LegendSpam.png' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Amrit Giri</h2>
+                <h1 class="text-right col-2">57</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Student </h4>
+                <h4 class="col-7 text-right">BCA 4th Sem </h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-left my-3 ml-5"><span class="text-light bg-dark rounded-3 display-5 border py-2 px-2">Football Team </span></h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Nisan Rai</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Captain </h4>
+              <h4 class="col-7 text-right">Center Back</h4>
+            </div>
+              <h6 class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem.</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Reason Shrestha</h2>
+                <h1 class="text-right col-2">7</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Player </h4>
+                <h4 class="col-7 text-right">Left Midfield</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/xm.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Shaksham Shrestha</h2>
+                <h1 class="text-right col-2">4</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Captain </h4>
+                <h4 class="col-7 text-right">Goal-Keeper</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Sabin Ghimire</h2>
+                <h1 class="text-right col-2">11</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Player </h4>
+                <h4 class="col-7 text-right">Right Midfield</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/pk.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Alabin Kafle</h2>
+                <h1 class="text-right col-2">2</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Player </h4>
+                <h4 class="col-7 text-right">Goal-Keeper</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Dipesh Mijar</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Player </h4>
+                <h4 class="col-7 text-right">Center Forward</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/prabinn.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Prabin Siwakoti</h2>
+                <h1 class="text-right col-2">3</h1>
+              </div>
+              <div class="row">
+                <h4 class="col-5 text-left">Player </h4>
+                <h4 class="col-7 text-right">Left Wingerk</h4>
+              </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/pjn.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Pujan Siwakoti</h2>
+                <h1 class="text-right col-2">22</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Right Winger</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Aayush Bhattarai</h2>
+                <h1 class="text-right col-2">19</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Center Back</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Bishal Chhetri</h2>
+                <h1 class="text-right col-2">6</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Center Midfield</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">SR Shrestha</h2>
+                <h1 class="text-right col-2">10</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Center Midfield</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/rpsh.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Rupesh Karki</h2>
+                <h1 class="text-right col-2">97</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Center Back</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <h1 class="text-left my-3 ml-5"><span class="text-light bg-dark rounded-3 display-5 border py-2 px-2">Cricket Team </span></h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Shahid Alam</h2>
+                <h1 class="text-right col-2">9</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Batsman</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Pradeep Jaiswal</h2>
+                <h1 class="text-right col-2">7</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Batsman</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Niraj Yadav</h2>
+                <h1 class="text-right col-2">18</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Batsman</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/bho.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Bhopes Kunwar</h2>
+                <h1 class="text-right col-2">13</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">All-Rounder</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Abhishek Ale</h2>
+                <h1 class="text-right col-2">44</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">All-Rounder</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Dipesh Karki</h2>
+                <h1 class="text-right col-2">31</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Batsman</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Arun Thapa</h2>
+                <h1 class="text-right col-2">11</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Fielder</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Ram Ishwar Mahato</h2>
+                <h1 class="text-right col-2">25</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Fielder</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Binit Das</h2>
+                <h1 class="text-right col-2">3</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">All-Rounder</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/nibil.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Nibil Basnet</h2>
+                <h1 class="text-right col-2">33</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Bowler</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Bishnu Chhetri</h2>
+                <h1 class="text-right col-2">17</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Bowler</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/logo1.jpg' %}"  alt="">
+            <div class="card-body ">
+              <div class="row d-flex justify-content-between ">
+                <h2 class="text-left col-10">Pramish Shrestha</h2>
+                <h1 class="text-right col-2">8</h1>
+              </div>
+              <div class="row">
+              <h4 class="col-5 text-left">Player </h4>
+              <h4 class="col-7 text-right">Bowler</h4>
+            </div>
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, nihil!</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endblock members %}

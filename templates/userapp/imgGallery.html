@@ -1,0 +1,107 @@
+{% extends 'userapp/base_guest.html' %}
+{% load static %}
+
+{% block title %} Gallery {% endblock %}
+{%block head%} {%endblock%}
+{% block category %}
+<div class="dropdown">
+    <button class="dropbtn"style="padding-left: 40px;"><h3 style="padding-top: 7px;">Accessories<i style="padding-left: 5px;;" class="fa fa-caret-down"></i></h3>
+    </button>
+    <div class="dropdown-content">
+        {% for x in category_data%}
+      <a href="/category/{{x.id}}">{{x.categoryname}}</a>
+      {% endfor %}
+    </div>
+  </div> 
+  <div style="padding-left: 40px;" class="home "> <a style="text-decoration: none;" href="/members/"><h3 style=" color: white; padding-top: 20px;">Members</h3> </a> </div>
+  <div style="padding-left: 40px;" class="home "> <a style="text-decoration: none;" href="/gallery/"><h3 style=" color: white; padding-top: 20px;">Gallery</h3> </a> </div>
+{% endblock %} 
+{% block login%}
+{% endblock%}
+{% block account %}
+<div class="dropdown">
+  {% if userdetails %}
+  <button class="dropbtn"style="padding-left: 50px;"><img style="height: 50px; margin-top: 13px;" alt="User Pic" src="{{userdetails.ImageURL}}" id="profile-image1" class="img-circle img-responsive"></h4>
+  </button>
+  {% else %}
+  <button class="dropbtn"style="padding-left: 40px;"><i style="font-size: 20px; padding-top: 19px; padding-left: 5px;" class="fas fa-user-circle"></i></h4>
+  </button>
+  {% endif %}
+  {% if request.user.is_authenticated %}
+  <div class="dropdown-content">
+    <a href="/user_profile/">My Profile</a>
+    <a href="/user_order_history/">order History</a>
+    <a href="/user_logout/">logout</a>
+  </div>
+  {% else %}
+
+  {% endif %}
+</div>
+{%endblock%}
+
+{% block gallery %}
+<div class="album bg-secondary" style="padding-top: 70px;">
+    <div class="container-fluid">
+      <h1 class="text-left my-3 ml-5"><span class="text-light bg-dark rounded-3 display-5 border py-2 px-2">Album / Gallery</span></h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+            <a href="{% static 'userapp/images/member/woo.jpg' %}">
+
+            
+            <img class="bd-placeholder-img card-img-top" width="90%" height="155" src="{% static 'userapp/images/member/woo.jpg' %}"  alt="">
+          </a>
+          </div>
+        </div>
+      
+
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <a href="{% static 'userapp/images/member/ah.jpg' %}">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/ah.jpg' %}"  alt="">
+          </a>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+            <a href="{% static 'userapp/images/member/la.jpg' %}">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/la.jpg' %}"  alt="">
+          </a>
+          </div>
+        </div>
+       <div class="col mb-4">
+          <div class="card shadow-sm">
+           <a href="{% static 'userapp/images/member/guys.jpg' %}">
+            <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/guys.jpg' %}"  alt="">
+          </a>
+          </div>
+        </div>
+       
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+           <a href="{% static 'userapp/images/member/um.jpg' %}"> 
+           <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/um.jpg' %}"  alt="">
+           </a>
+          </div>
+        </div>
+       
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+           <a href="{% static 'userapp/images/member/group.JPG' %}"> 
+           <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/group.JPG' %}"  alt="">
+           </a>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+           <a href="{% static 'userapp/images/member/hee.jpg' %}"> 
+           <img class="bd-placeholder-img card-img-top" width="70%" height="155" src="{% static 'userapp/images/member/hee.jpg' %}"  alt="">
+           </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>{% endblock gallery %}
